@@ -1,7 +1,7 @@
 <template>
   <div class="register">
     <h1>Register</h1>
-    <p><input type="text" placeholder="Email" v-model="email" /></p>
+    <p><input type="email" placeholder="Email" v-model="email" /></p>
     <p><input type="password" placeholder="Password" v-model="password" /></p>
     <p><button @click="register">Submit</button></p>
     <p><button @click="signInWithGoogle">Sign in With Google</button></p>
@@ -10,24 +10,25 @@
 
 <script setup>
 import { ref } from "vue";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import firebase from "firebase";
 import { useRouter } from "vue-router";
 const email = ref("");
 const password = ref("");
 const router = useRouter();
 
 const register = () => {
-  createUserWithEmailAndPassword(getAuth(), email.value, password.value)
-  //STUCK HERE, DATA ERROR
-
-  
-    .then((data) => {
-      console.log("Successfully Registered!");
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(email.value, password.value)
+    .then((userCredential) => {
+      // Signed in
+      var user = userCredential.user;
+      console.log("success");
       router.push("/feed");
     })
     .catch((error) => {
-      console.log(error.code);
-      alert(error.message);
+      var errorCode = error.code;
+      var errorMessage = error.message;
     });
 };
 
