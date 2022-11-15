@@ -23,7 +23,7 @@ const register = () => {
     .then((userCredential) => {
       // Signed in
       var user = userCredential.user;
-      console.log("success");
+      console.log("registration successful");
       router.push("/feed");
     })
     .catch((error) => {

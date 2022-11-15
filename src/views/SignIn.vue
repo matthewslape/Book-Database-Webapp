@@ -26,7 +26,7 @@ const signIn = () => {
     .then((userCredential) => {
       // Signed in
       var user = userCredential.user;
-      console.log("success");
+      console.log("sign in successful");
       router.push("/feed");
     })
     .catch((error) => {
