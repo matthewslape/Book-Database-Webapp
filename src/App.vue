@@ -53,11 +53,12 @@ const handleSignOut = () => {
 
 <style>
 #app {
+  background-color: #141414;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
 }
 
 #nav {
@@ -66,7 +67,7 @@ const handleSignOut = () => {
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: white;
 }
 
 #nav a.router-link-exact-active {

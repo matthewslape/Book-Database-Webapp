@@ -1,11 +1,30 @@
 <template>
   <div class="register">
-    <h1>Sign In</h1>
-    <p><input type="email" placeholder="Email" v-model="email" /></p>
-    <p><input type="password" placeholder="Password" v-model="password" /></p>
-    <p v-if="errMsg">{{ errMsg }}</p>
-    <p><button @click="signIn">Submit</button></p>
-    <p><button @click="signInWithGoogle">Sign in With Google</button></p>
+    <!--<h1>Sign In</h1>-->
+    <h6 class="fw-bold" v-if="errMsg">{{ errMsg }}</h6>
+    <form class="form container-sm">
+      <div class="mb-3 text-start">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Email"
+          v-model="email"
+        />
+      </div>
+      <div class="mb-3 text-start">
+        <input
+          type="password"
+          placeholder="Password"
+          class="form-control"
+          v-model="password"
+        />
+      </div>
+    </form>
+    <p>
+      <button type="button" class="btn btn-primary" @click="signIn">
+        Sign In
+      </button>
+    </p>
   </div>
 </template>
 
@@ -45,6 +64,11 @@ const signIn = () => {
       }
     });
 };
-
-const signInWithGoogle = () => {};
 </script>
+
+<style scoped>
+.form {
+  max-width: 20rem;
+  align-items: flex-start;
+}
+</style>
