@@ -1,9 +1,12 @@
 <template>
   <div class="register">
     <!--<h1>Sign In</h1>-->
-    <h6 class="fw-bold" v-if="errMsg">{{ errMsg }}</h6>
+    <img class="pt-4 pb-4" src="../assets/svgs/Shlf.svg" alt="Shlf Logo" />
     <form class="form container-sm">
-      <div class="mb-3 text-start">
+      <h6 class="alert alert-warning fw-bold fst-italic" v-if="errMsg">
+        {{ errMsg }}
+      </h6>
+      <div class="mb-4 text-start">
         <input
           type="email"
           class="form-control"
@@ -11,7 +14,7 @@
           v-model="email"
         />
       </div>
-      <div class="mb-3 text-start">
+      <div class="mb-4 text-start">
         <input
           type="password"
           placeholder="Password"
@@ -31,6 +34,7 @@
 <script setup>
 import { ref } from "vue";
 import firebase from "firebase";
+import "firebase/auth";
 import { useRouter } from "vue-router";
 
 const email = ref("");
@@ -45,8 +49,8 @@ const signIn = () => {
     .then((userCredential) => {
       // Signed in
       var user = userCredential.user;
-      console.log("sign in successful");
       router.push("/feed");
+      console.log("sign in successful");
     })
     .catch((error) => {
       switch (error.code) {
@@ -69,6 +73,5 @@ const signIn = () => {
 <style scoped>
 .form {
   max-width: 20rem;
-  align-items: flex-start;
 }
 </style>

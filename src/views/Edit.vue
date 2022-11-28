@@ -29,13 +29,12 @@ export default {
     const form = reactive({ bookTitle: "", author: "" });
     onMounted(async () => {
       const book = await getBook(bookId.value);
-      console.log(book, bookId.value);
       form.bookTitle = book.bookTitle;
       form.author = book.author;
     });
     const update = async () => {
       await updateBook(bookId.value, { ...form });
-      router.push("/");
+      router.push("/feed");
       form.bookTitle = "";
       form.author = "";
     };

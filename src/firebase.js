@@ -1,4 +1,4 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
 import { ref, onUnmounted } from "vue";
 
 const firebaseConfig = {
@@ -17,7 +17,6 @@ const db = firebaseapp.firestore();
 const bookCollection = db.collection("books");
 
 //FUNCTIONS
-
 export const createBook = (book) => {
   return bookCollection.add(book);
 };
@@ -42,4 +41,22 @@ export const useLoadBooks = () => {
   });
   onUnmounted(close);
   return books;
+};
+
+firebase.getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      unsubscribe();
+      resolve(user);
+    }, reject);
+    /*{
+    const removeListener = firebase.auth().onAuthStateChanged(
+      firebase.auth(),
+      (user) => {
+        removeListener();
+        resolve(user);
+      },
+      reject
+    );*/
+  });
 };

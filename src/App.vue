@@ -16,16 +16,6 @@ import { useRouter } from "vue-router"; //import router
 const router = useRouter();
 const isLoggedIn = ref(false);
 
-/*let auth;
-onMounted(() => {
-  auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      
-    } else {
-      isLoggedIn.value = false;
-    }
-});*/
 onMounted(() => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -33,6 +23,7 @@ onMounted(() => {
     } else {
       isLoggedIn.value = false;
     }
+    console.log(isLoggedIn.value);
   });
 });
 
