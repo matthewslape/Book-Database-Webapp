@@ -1,18 +1,20 @@
 <template>
   <div class="card card-body mt-4">
-    <h3>Edit Books</h3>
+    <h3>Edit Book</h3>
     <form @submit.prevent="update">
-      <div class="form-group">
-        <label>Title</label>
-        <input v-model="form.bookTitle" class="form-control" required />
-      </div>
+      <div class="row px-3">
+        <div class="form-group d-flex flex-column align-items-start col">
+          <label>Title</label>
+          <input v-model="form.bookTitle" class="form-control" required />
+        </div>
 
-      <div class="form-group mt-3">
-        <label>Author</label>
-        <input v-model="form.author" class="form-control" required />
+        <div class="form-group d-flex flex-column align-items-start col">
+          <label>Author</label>
+          <input v-model="form.author" class="form-control" required />
+        </div>
       </div>
-
-      <button type="submit" class="btn btn-primary mt-3">Update</button>
+      <button class="btn btn-danger btn mt-3 mx-1" @click="del">Delete</button>
+      <button type="submit" class="btn btn-primary mt-3 mx-1">Update</button>
     </form>
   </div>
 </template>
@@ -20,7 +22,7 @@
 <script>
 import { reactive, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { getBook, updateBook } from "@/firebase";
+import { getBook, updateBook, deleteBook } from "@/firebase";
 export default {
   setup() {
     const router = useRouter();
@@ -38,7 +40,20 @@ export default {
       form.bookTitle = "";
       form.author = "";
     };
-    return { form, update };
+
+    const del = () => {
+      deleteBook(bookId.value);
+      router.push("/feed");
+    };
+
+    return { form, update, del };
   },
 };
 </script>
+
+<style scoped>
+.card {
+  margin: 2rem;
+  background: #0746c3;
+}
+</style>

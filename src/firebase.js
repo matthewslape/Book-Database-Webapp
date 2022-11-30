@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import { ref, onUnmounted } from "vue";
+import router from "./router";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD4SWgsMNoXneWZk7oBfn349QAJEibEvgY",

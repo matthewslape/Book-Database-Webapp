@@ -20,9 +20,6 @@
             <p class="card-text">
               <small class="text-muted">FINISHED ON...</small>
             </p>
-            <!--<button class="btn btn-danger btn-sm" @click="deleteBook(id)">
-                Delete
-              </button>-->
           </div>
         </div>
       </div>
