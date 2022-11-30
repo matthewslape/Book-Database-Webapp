@@ -1,21 +1,17 @@
 <template>
-  <div class="card card-body m-4">
+  <div class="card card-body">
     <form @submit.prevent="onSubmit">
-      <div class="form-group">
-        <label>Title</label>
-        <input v-model="form.bookTitle" class="form-control" required />
-      </div>
+      <div class="row px-3">
+        <div class="form-group d-flex flex-column align-items-start col">
+          <label>Title</label>
+          <input v-model="form.bookTitle" class="form-control" required />
+        </div>
 
-      <div class="form-group mt-3">
-        <label>Author</label>
-        <input
-          v-model="form.author"
-          class="form-control"
-          type="string"
-          required
-        />
+        <div class="form-group d-flex flex-column align-items-start col">
+          <label>Author</label>
+          <input v-model="form.author" class="form-control" required />
+        </div>
       </div>
-
       <button type="submit" class="btn btn-success mt-3">Create Book</button>
     </form>
   </div>
@@ -30,9 +26,16 @@ export default {
     const onSubmit = async () => {
       await createBook({ ...form });
       form.bookTitle = "";
-      form.email = "";
+      form.author = "";
     };
     return { form, onSubmit };
   },
 };
 </script>
+
+<style scoped>
+.card {
+  margin: 2rem;
+  background: #0746c3;
+}
+</style>
