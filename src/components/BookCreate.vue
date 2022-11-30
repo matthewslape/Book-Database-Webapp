@@ -1,5 +1,5 @@
 <template>
-  <div class="card card-body mt-4">
+  <div class="card card-body m-4">
     <form @submit.prevent="onSubmit">
       <div class="form-group">
         <label>Title</label>
