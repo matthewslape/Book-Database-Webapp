@@ -13,7 +13,12 @@
           <input v-model="form.author" class="form-control" required />
         </div>
       </div>
-      <button class="btn btn-danger btn mt-3 mx-1" @click="del">Delete</button>
+      <router-link :to="`/view/${bookId}`"
+        ><button class="btn btn-secondary mt-3 mx-1">
+          Cancel
+        </button></router-link
+      >
+      <button class="btn btn-danger mt-3 mx-1" @click="del">Delete</button>
       <button type="submit" class="btn btn-primary mt-3 mx-1">Update</button>
     </form>
   </div>
@@ -36,7 +41,7 @@ export default {
     });
     const update = async () => {
       await updateBook(bookId.value, { ...form });
-      router.push("/feed");
+      router.back();
       form.bookTitle = "";
       form.author = "";
     };
@@ -46,7 +51,7 @@ export default {
       router.push("/feed");
     };
 
-    return { form, update, del };
+    return { form, update, del, bookId };
   },
 };
 </script>
@@ -55,5 +60,8 @@ export default {
 .card {
   margin: 2rem;
   background: #0746c3;
+  width: 80vw;
+  max-width: 80rem;
+  margin: auto;
 }
 </style>

@@ -1,10 +1,25 @@
 <template>
   <div class="register">
-    <h1>Register</h1>
-    <p><input type="email" placeholder="Email" v-model="email" /></p>
-    <p><input type="password" placeholder="Password" v-model="password" /></p>
-    <p><button @click="register">Submit</button></p>
-    <p><button @click="signInWithGoogle">Sign in With Google</button></p>
+    <img class="pt-4 pb-4" src="../assets/svgs/Shlf.svg" alt="Shlf Logo" />
+    <form class="form container-sm">
+      <div class="mb-4 text-start">
+        <input
+          class="form-control"
+          type="email"
+          placeholder="Email"
+          v-model="email"
+        />
+      </div>
+      <div class="mb-4 text-start">
+        <input
+          class="form-control"
+          type="password"
+          placeholder="Password"
+          v-model="password"
+        />
+      </div>
+    </form>
+    <p><button class="btn btn-primary" @click="register">Register</button></p>
   </div>
 </template>
 
@@ -34,3 +49,9 @@ const register = () => {
 
 const signInWithGoogle = () => {};
 </script>
+
+<style scoped>
+.form {
+  max-width: 20rem;
+}
+</style>

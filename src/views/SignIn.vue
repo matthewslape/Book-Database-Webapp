@@ -1,6 +1,5 @@
 <template>
   <div class="register">
-    <!--<h1>Sign In</h1>-->
     <img class="pt-4 pb-4" src="../assets/svgs/Shlf.svg" alt="Shlf Logo" />
     <form class="form container-sm">
       <h6 class="alert alert-warning fw-bold fst-italic" v-if="errMsg">

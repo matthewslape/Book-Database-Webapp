@@ -6,6 +6,7 @@ import SignIn from "../views/SignIn.vue";
 import Feed from "../views/Feed.vue";
 import About from "../views/About.vue";
 import Edit from "../views/Edit.vue";
+import View from "../views/View.vue";
 
 const routes = [
   {
@@ -35,6 +36,11 @@ const routes = [
     path: "/edit/:id",
     name: "Edit",
     component: Edit,
+  },
+  {
+    path: "/view/:id",
+    name: "View",
+    component: View,
   },
   {
     path: "/about",

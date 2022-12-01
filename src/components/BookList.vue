@@ -2,7 +2,7 @@
   <div class="cardContainer">
     <router-link
       style="text-decoration: none; color: inherit"
-      :to="`/edit/${id}`"
+      :to="`/view/${id}`"
       class="card"
       v-for="{ id, bookTitle, author } in books"
       :key="id"
@@ -39,12 +39,15 @@ export default {
 
 <style scoped>
 .cardContainer {
-  margin: 1rem;
+  margin: 2rem;
+  padding-top: 2rem;
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   align-items: center;
-  padding: 1rem;
+  width: 80vw;
+  max-width: 80rem;
+  margin: auto;
 }
 .card {
   background: white;
@@ -57,6 +60,8 @@ export default {
 .card-img {
   background: #acccf8;
   border-radius: 0;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-body {
@@ -64,11 +69,16 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   padding: 0.5rem;
+  height: 100%;
 }
 
 .title {
+  width: 90%;
   text-align: left;
   font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 h5,

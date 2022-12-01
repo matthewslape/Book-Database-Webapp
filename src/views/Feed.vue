@@ -1,6 +1,6 @@
 <template>
   <div class="register">
-    <h1>Feed</h1>
+    <img class="pt-4 pb-4" src="../assets/svgs/Shlf.svg" alt="Shlf Logo" />
     <BookCreate />
     <BookList />
   </div>

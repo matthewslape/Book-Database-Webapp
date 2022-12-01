@@ -12,7 +12,7 @@
           <input v-model="form.author" class="form-control" required />
         </div>
       </div>
-      <button type="submit" class="btn btn-success mt-3">Create Book</button>
+      <button type="submit" class="btn btn-success mt-3">Save</button>
     </form>
   </div>
 </template>
@@ -37,5 +37,8 @@ export default {
 .card {
   margin: 2rem;
   background: #0746c3;
+  width: 80vw;
+  max-width: 80rem;
+  margin: auto;
 }
 </style>
