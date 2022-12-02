@@ -1,28 +1,4 @@
 <template>
-  <div id="nav">
-    <router-link to="/about"
-      ><button class="btn btn-outline-light btn-sm mx-2">
-        About
-      </button></router-link
-    >
-    <router-link to="/register"
-      ><button class="btn btn-outline-light btn-sm mx-2" v-if="!isLoggedIn">
-        Register
-      </button></router-link
-    >
-    <router-link to="/sign-in"
-      ><button class="btn btn-outline-light btn-sm mx-2" v-if="!isLoggedIn">
-        Sign In
-      </button></router-link
-    >
-    <button
-      class="btn btn-outline-light btn-sm mx-2"
-      @click="handleSignOut"
-      v-if="isLoggedIn"
-    >
-      Sign Out
-    </button>
-  </div>
   <router-view />
 </template>
 
@@ -43,20 +19,6 @@ onMounted(() => {
     console.log(isLoggedIn.value);
   });
 });
-
-const handleSignOut = () => {
-  firebase
-    .auth()
-    .signOut()
-    .then(() => {
-      console.log("sign out successfull");
-      router.push("/");
-    })
-    .catch((error) => {
-      console.log(error.code);
-      console.log("error in sign out");
-    });
-};
 </script>
 
 <style>
@@ -67,18 +29,5 @@ const handleSignOut = () => {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: white;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: white;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>

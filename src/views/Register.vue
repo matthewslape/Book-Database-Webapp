@@ -1,25 +1,27 @@
 <template>
-  <div class="register">
-    <img class="pt-4 pb-4" src="../assets/svgs/Shlf.svg" alt="Shlf Logo" />
-    <form class="form container-sm">
-      <div class="mb-4 text-start">
-        <input
-          class="form-control"
-          type="email"
-          placeholder="Email"
-          v-model="email"
-        />
-      </div>
-      <div class="mb-4 text-start">
-        <input
-          class="form-control"
-          type="password"
-          placeholder="Password"
-          v-model="password"
-        />
-      </div>
-    </form>
-    <p><button class="btn btn-primary" @click="register">Register</button></p>
+  <div class="container">
+    <div class="register">
+      <img class="pt-4 pb-4" src="../assets/svgs/Shlf.svg" alt="Shlf Logo" />
+      <form class="form container-sm">
+        <div class="mb-4 text-start">
+          <input
+            class="form-control"
+            type="email"
+            placeholder="Email"
+            v-model="email"
+          />
+        </div>
+        <div class="mb-4 text-start">
+          <input
+            class="form-control"
+            type="password"
+            placeholder="Password"
+            v-model="password"
+          />
+        </div>
+      </form>
+      <p><button class="btn btn-primary" @click="register">Register</button></p>
+    </div>
   </div>
 </template>
 
@@ -52,6 +54,16 @@ const signInWithGoogle = () => {};
 
 <style scoped>
 .form {
+  width: 80vw;
+  min-width: 15rem;
   max-width: 20rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
 }
 </style>
